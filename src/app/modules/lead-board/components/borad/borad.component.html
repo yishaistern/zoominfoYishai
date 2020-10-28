@@ -1,0 +1,15 @@
+<div class="main">
+    <div class="actions">
+        <div (click)="start()" class="start">START GAME</div>
+        <div (click)="newUser()" class="start">NEW USER</div>
+    </div>
+    
+   <div class="title">LEADER BOARD</div>
+    <div class="leed">
+        <ng-container *ngFor="let item of (users | async); index as i" >
+            <div [class.white]="i > 2">{{item.userName}}</div> 
+            <div [class.white]="i > 2" class="score">{{item.score}}</div>
+        </ng-container>
+        
+     </div>
+</div>

@@ -1,0 +1,50 @@
+<section class="main-secion" *ngIf="game.currentQuestion">
+    <div class="header">
+        <div class="lives">
+            <div>lives</div>
+            <div [class.isdone]="(game.lives < 1)" class="heart"></div>
+            <div [class.isdone]="(game.lives < 2)" class="heart"></div>
+            <div [class.isdone]="(game.lives < 3)" class="heart"></div>
+        </div>
+        <div class="question_num">Q<span class="only-mobile">: </span><span class="no-mobile">UESTIONS</span>  {{game.currentIndex + 1}} / {{game.howMqntQuestions}}</div>
+        <div class="points">
+            <div class="points-title">Points</div>
+            <div class="points-num">{{game.counterCorectAnswers}}</div>
+        </div>
+    </div>
+    <div class="body" >
+        <div class="question">
+            <div class="discription"> <span>Q{{game.currentIndex + 1}}:</span> <span class="plain">{{game.currentQuestion.question}}</span></div>
+            <div [class.hide]="game.didpick" class="time">{{game.timeLeft}} SECONDS</div>
+        </div>
+        <div class="answers" [class.pickGood]="(game.didpick && didPickWrite)" [class.pickbad]="(game.didpick && !didPickWrite)">
+            <div
+            *ngFor="let item of game.currentQuestion.answers_array; even as iseven" 
+                [class.pickMe]="(item === pickedAnswer)"
+                class="answer"
+                (click)="userPick(item)"
+                >
+                <div>{{item}}</div>
+                <div *ngIf="pickedAnswer === item && game.didpick" class="pick-icon"></div>
+            </div>
+        </div>
+        <div class="submit">
+            <div></div>
+            <div (click)="pickAnswer(pickedAnswer)" *ngIf="game.timeLeft && !game.didpick" [class.didNotPick]="!pickedAnswer" class="pick-btn">OK</div>
+            <div (click)="next()" *ngIf="(pickedAnswer && game.didpick) || game.timeLeft === 0" class="pick-btn">Continue</div>
+            <div class="skip">
+                <ng-container *ngIf="game.skipLeft && !game.didpick && game.timeLeft">
+                    <div (click)="skip()" class="skip-btn">skip</div>
+                    <div class="left">{{game.skipLeft}} left</div>
+                </ng-container>
+                <ng-container *ngIf="game.skipLeft && game.timeLeft === 0">
+                    <div class="left">Time is up. Click continue fo next...</div>
+                </ng-container>
+                
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <img src="../../../../../assets/logo.png" />
+    </div>
+</section>

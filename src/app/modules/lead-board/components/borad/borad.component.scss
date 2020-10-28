@@ -1,0 +1,62 @@
+.main {
+    background-image: url('../../../../../assets/m5.jpg');
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    background-position: center;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.leed {
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 80vw;
+    max-width: 700px;
+    display: grid;
+    color: gold;
+    text-shadow: 1px 1px 11px gold;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    margin: auto;
+    font-size: 25px;
+    padding: 18px 10px 0px 10px;
+    div {
+        margin-bottom: 20px;
+    }
+    .white {
+        text-shadow:0;
+        color: #fff;
+    }
+}
+
+.start {
+    border: 1px solid #fff;
+    border-radius: 14px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    text-align: center;
+    width: 100px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
+    color: gold;
+    text-shadow: 1px 1px 11px gold;
+    font-size: 27px;
+    margin-bottom: 40px;
+    text-align: center;
+    letter-spacing: 2px;
+    margin-top: 30px;
+}
+
+.score {
+    text-align: right;
+}

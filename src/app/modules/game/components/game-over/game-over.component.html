@@ -1,0 +1,20 @@
+<div class="main" [class.bad]="!didWin">
+    <div  class="header">
+        <div class="icon"></div>
+        <div class="title">GAME OVER</div>
+    </div>
+    <div class="body">
+        <div class="wow"> AMAZING!!!</div>
+        <div class="discrpition">
+            You answerd correctly
+        </div>
+        <div class="amount">
+            {{data.counterCorectAnswers}} OUT OF {{data.howMqntQuestions}}
+        </div>
+        <div class="btn-wrap">
+            <button (click)="close()" *ngIf="didWin" mat-raised-button color="primary">Show Results</button>
+            <button (click)="close()" *ngIf="!didWin" mat-raised-button color="warn">Show Results</button>
+        </div>
+        
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="main">
+    <div class="header">
+        <div class="icon"></div>
+        <div class="title">Welcom</div>
+    </div>
+    <div class="body">
+        <mat-form-field class="full-width">
+            <mat-label>Your name...</mat-label>
+            <input class="input" matInput placeholder="User name" [(ngModel)]="name">
+        </mat-form-field>
+        <div *ngIf="isAlready" class="err">User Already exsits</div>
+        <div class="btn-wrap">
+            <button (click)="addUser()" mat-raised-button color="primary">Start Game</button>
+        </div>
+        
+    </div>
+</div>
